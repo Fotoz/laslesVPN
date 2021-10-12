@@ -1,0 +1,40 @@
+//===== Font-face:
+=font-face($font-family, $weight: 400, $style: normal)
+  @font-face
+    font:
+      family: $font-family
+      style: $style
+      weight: $weight
+    src: url('../fonts/' + $font-family + '.woff2') format('woff2')
+
+//===== Box:
+=box($width, $height: $width)
+  width: $width
+  height: $height
+
+//===== Background cover:
+=cover-bg
+  background:
+    position: center
+    size: cover
+    repeat: no-repeat
+
+//===== Transition:
+=trs($property: all, $duration: .15s, $timing-function: linear)
+  transition: $property $duration $timing-function
+
+//===== Responsive value:
+=resp-val($property, $start-size, $min-size)
+  $add-size: $start-size - $min-size
+  #{$property}: $start-size + px
+  @media (max-width: #{$container-mw + px})
+    #{$property}: calc(#{$min-size + px} + #{$add-size} * ((100vw - 320px) / #{$container-mw - 320}))
+
+//===== Responsive media queries:
+=media($bp, $desktop: true)
+  @if $desktop == true
+    @media (max-width: #{$bp - 1} + px)
+      @content
+  @else
+    @media (min-width: $bp + px)
+      @content

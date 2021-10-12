@@ -1,0 +1,33 @@
+//===== Extentions:
+%container
+  width: 100%
+  max-width: $container-mw + px
+  margin:
+    right: auto
+    left: auto
+  padding:
+    right: 15px
+    left: 15px
+
+%s-padd
+  padding:
+    top: 50px
+    bottom: 50px
+
+//===== Extra classes:
+._container
+  @extend %container
+
+._img-fluid
+  display: block
+  max-width: 100%
+  height: auto
+
+._img-bg
+  display: block
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+._of-hidden
+  overflow: hidden

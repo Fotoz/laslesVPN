@@ -1,0 +1,36 @@
+//===== Basic settings:
+body
+  min-width: 320px
+  font: $body-font
+
+ul
+  margin-bottom: 0
+  padding-left: 0
+  li
+    list-style: none
+
+button
+  border: none
+
+input,
+select,
+textarea
+  -webkit-appearance: none
+  border-radius: 0
+
+input,
+button,
+textarea
+  &:focus
+    outline: none
+
+::placeholder
+  color: #777
+  opacity: 1
+
+:focus::placeholder
+  color: transparent
+
+::selection
+  color: #fff
+  background-color: $accent
