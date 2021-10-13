@@ -10,6 +10,7 @@ const {
   file_include   = require('gulp-file-include'),
   del            = require('del'),
   sass           = require('gulp-sass')(require('sass')),
+  cssbeautify    = require('gulp-cssbeautify'),
   autoprefixer   = require('gulp-autoprefixer'),
   group_media    = require('gulp-group-css-media-queries'),
   clean_css      = require('gulp-clean-css'),
@@ -19,7 +20,9 @@ const {
   webp           = require('gulp-webp'),
   webp_html      = require('gulp-webp-html'),
   webp_css       = require('gulp-webp-css'),
-  svg_sprite     = require('gulp-svg-sprite');
+  svg_sprite     = require('gulp-svg-sprite'),
+  ttf2woff       = require('gulp-ttf2woff'),
+  ttf2woff2      = require('gulp-ttf2woff2');
 
 //===== Paths:
 const project_folder = 'dist',
@@ -38,7 +41,7 @@ const path = {
     css:   source_folder + '/sass/main.sass',
     js:    source_folder + '/js/app.js',
     img:   source_folder + '/img/**/*.+(jpg|png|gif|ico|svg|webp)',
-    fonts: source_folder + '/fonts/**/*'
+    fonts: source_folder + '/fonts/*.ttf'
   },
   watch: {
     html:  source_folder + '/**/*.html',
@@ -72,11 +75,8 @@ function html () {
 function css () {
   return src(path.src.css)
     .pipe(
-      sass({
-        outputStyle: 'expanded'
-      }).on('error', sass.logError)
+      sass().on('error', sass.logError)
     )
-    .pipe( group_media() )
     .pipe(
       autoprefixer({
         cascade: false,
@@ -85,8 +85,17 @@ function css () {
       })
     )
     .pipe( webp_css() )
+    .pipe(
+      cssbeautify({
+        indent: '  ',
+        openbrace: 'end-of-line',
+        autosemicolon: true
+      })
+    )
+    .pipe( group_media() )
     .pipe( rename('app.css') ) // uncompressed version
     .pipe( dest(path.build.css) )
+
     .pipe( clean_css() )
     .pipe( rename('app.min.css') )
     .pipe( dest(path.build.css) )
@@ -104,7 +113,6 @@ function js () {
 }
 
 function images () {
-  // return src([path.src.img, '!' + path.src.img + '.ico'])
   return src(path.src.img)
     .pipe(
       webp({
@@ -131,8 +139,8 @@ gulp.task('svg_sprite', function () {
     .pipe(svg_sprite({
       mode: {
         stack: {
-          sprite: '../img/icons/svg_sprite.svg', // sprite file name
-          // example: true
+          sprite: '../icons/svg-sprite.svg', // sprite file name
+          example: true
         }
       }
     }))
@@ -140,7 +148,11 @@ gulp.task('svg_sprite', function () {
 })
 
 function fonts () {
+  src(path.src.fonts)
+    .pipe( ttf2woff() )
+    .pipe( dest(path.build.fonts) )
   return src(path.src.fonts)
+    .pipe( ttf2woff2() )
     .pipe( dest(path.build.fonts) )
 }
 

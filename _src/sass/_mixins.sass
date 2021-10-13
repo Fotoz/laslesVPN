@@ -1,11 +1,12 @@
 //===== Font-face:
-=font-face($font-family, $weight: 400, $style: normal)
+=font-face($font-family, $font-path, $weight: 400, $style: normal)
   @font-face
     font:
       family: $font-family
       style: $style
       weight: $weight
-    src: url('../fonts/' + $font-family + '.woff2') format('woff2')
+      display: swap
+    src: url('../fonts/#{$font-path}.woff') format('woff'), url('../fonts/#{$font-path}.woff2') format('woff2')
 
 //===== Box:
 =box($width, $height: $width)
@@ -13,8 +14,9 @@
   height: $height
 
 //===== Background cover:
-=cover-bg
+=cover-bg($url)
   background:
+    image: url('../img/' + $url + '.jpg')
     position: center
     size: cover
     repeat: no-repeat

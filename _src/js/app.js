@@ -1,9 +1,9 @@
+//===== jQuery:
+@@include('../../node_modules/jquery/dist/jquery.js')
+
 $(function () {
 
-//===== jQuery:
-@@include('../../node_modules/jquery/dist/jquery.js');
-
 //===== User scripts:
-@@include('custom.js');
+@@include('custom.js')
 
 });
