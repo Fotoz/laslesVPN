@@ -67,7 +67,7 @@ function html () {
     .pipe( file_include({
       indent: true
     }) )
-    .pipe( webp_html() )
+    // .pipe( webp_html() )
     .pipe( dest(path.build.html) )
     .pipe( browser_sync.stream() )
 }
@@ -84,7 +84,8 @@ function css () {
         overrideBrowserslist: ['last 10 versions']
       })
     )
-    .pipe( webp_css() )
+    // .pipe( webp_css() )
+    .pipe( group_media() )
     .pipe(
       cssbeautify({
         indent: '  ',
@@ -92,7 +93,6 @@ function css () {
         autosemicolon: true
       })
     )
-    .pipe( group_media() )
     .pipe( rename('app.css') ) // uncompressed version
     .pipe( dest(path.build.css) )
 
@@ -105,7 +105,7 @@ function css () {
 function js () {
   return src(path.src.js)
     .pipe( file_include() )
-    // .pipe( dest(path.build.js) ) // uncompressed version
+    .pipe( dest(path.build.js) ) // uncompressed version
     .pipe( uglify() )
     .pipe( rename('app.min.js') )
     .pipe( dest(path.build.js) )

@@ -1,4 +1,238 @@
 //===== Repeating elements:
 
-// Site logo:
+// Navigation:
+.nav
+  &--desktop
+    padding:
+      right: 30px
+      left: 30px
+    +media($bp3)
+      display: none
+    .nav__link
+      margin:
+        right: 20px
+        left: 20px
+      +trs(text-shadow)
+  &--mobile
+    padding:
+      top: 30px
+      bottom: 30px
+    .nav__link
+      display: block
 
+      font-size: 27px
+      color: $white
+      &:not(:last-child)
+        margin-bottom: 15px
+      &::before,
+      &::after
+        content: '\e907'
+        display: inline-block
+        transform: translateY(-2px)
+
+        font-family: 'icomoon'
+        font-size: 16px
+        color: #fea250
+      &::before
+        margin-right: 15px
+      &::after
+        margin-left: 15px
+
+.mobile-nav
+  padding: 18px 0
+  display: none
+  position: absolute
+  top: 0
+  left: 0
+  z-index: $z-index__mobile-nav
+
+  text-align: center
+
+  +box(100%, 100vh)
+  background-color: $body-color
+  &__inner
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    height: 100%
+
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+
+._no-touch
+  .nav--desktop .nav__link:hover
+    text-shadow: 15px 15px 1px $accent
+
+// Hamburger:
+.hamburger
+  display: none
+  z-index: $z-index__hamburger
+
+  font-size: 0
+  +media($bp3)
+    display: block
+
+// Site logo:
+.site-logo
+  display: flex
+  align-items: center
+  &__icon
+    margin-right: 10px
+    i
+      font-size: 37px
+      color: $accent
+      vertical-align: middle
+  &__name
+    font-size: 20px
+    font-weight: 500
+    color: $primary
+  &--mobile
+    .site-logo
+      &__icon
+        i
+          color: #fea250
+      &__name
+        color: $white
+
+// Button-rounded:
+.button-rounded
+  display: inline-block
+  padding: .4em 3.8em
+
+  font-weight: 700
+  color: $accent
+
+  background: none
+  border: 2px solid $accent
+  border-radius: 3em
+  +trs
+
+._no-touch
+  .sign--desktop .button-rounded:hover,
+  .package:hover .button-rounded
+    color: $white
+    background-color: $accent
+    box-shadow: 0 12px 17px rgba($accent, .3)
+
+// Sign In & Sign Up links:
+.sign
+  flex-shrink: 0
+  > *:not(:last-child)
+    margin-right: 28px
+  &__in
+    display: inline-block
+    padding: 0
+
+    font-weight: 500
+    color: $primary
+
+    background: none
+    +trs(color)
+  &__up
+    padding: .4em 2.8em
+    font-weight: 500
+    border-width: 1px
+  &--desktop
+    +media($bp3)
+      display: none
+  &--mobile
+    .sign__in
+      color: $white
+    .sign__up
+      color: $white
+      border-color: $white
+
+._no-touch
+  .sign--desktop
+    .sign__in:hover
+      color: $accent
+
+// Title:
+.title
+  font-size: 35px
+  font-weight: 500
+  line-height: 1.4
+  color: $primary
+  &--main
+    font-size: 50px
+  &--center,
+  &--center + p
+    text-align: center
+
+// Button:
+.button
+  display: inline-flex
+  justify-content: center
+  align-items: center
+
+  min-width: 250px
+  height: 60px
+  padding: 0 30px
+
+  font-weight: 700
+  text-transform: capitalize
+  color: $white
+
+  background-color: $accent
+  border-radius: .625em
+  box-shadow: 0 19px 25px rgba($accent, .27)
+  +trs
+
+._no-touch
+  .button:hover
+    background-color: darken($accent, 7)
+    box-shadow: 0 19px 25px rgba($accent, .5)
+
+// Package:
+.package
+  display: flex
+  flex-direction: column
+  align-items: center
+  flex: 0 1 330px
+  max-width: 330px
+
+  padding: 78px 70px 50px
+
+  cursor: pointer
+  background-color: $white
+  border: 2px solid #ddd
+  border-radius: 10px
+  +trs(border-color)
+  > *:last-child
+    margin-bottom: 0
+  &__icon
+    margin-bottom: 30px
+  &__name
+    margin-bottom: 25px
+
+    font-size: 18px
+    font-weight: 500
+    text-transform: capitalize
+    color: $primary
+  &__list
+    flex-grow: 1
+    margin-bottom: 40px
+    > *:not(:last-child)
+      margin-bottom: 14px
+  &__item
+    font-size: 14px
+    text-transform: capitalize
+    &::before
+      content: ''
+      display: inline-block
+      +box(14, 10)
+      margin-right: 25px
+
+      background-image: url(../img/plan/list-icon.svg)
+      background-repeat: no-repeat
+  &__price
+    margin-bottom: 15px
+    font-size: 25px
+    span
+      font-weight: 500
+      color: $primary
+
+._no-touch
+  .package:hover
+    border-color: $accent

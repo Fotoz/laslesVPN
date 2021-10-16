@@ -30,7 +30,7 @@ $hamburger-active-hover-filter: $hamburger-hover-filter !default;
 // Types (Remove or comment out what you don’t need)
 // ==================================================
 $hamburger-types: (
-  3dx,
+  // 3dx,
   // 3dx-r,
   // 3dy,
   // 3dy-r,
@@ -43,7 +43,7 @@ $hamburger-types: (
   // arrowturn,
   // arrowturn-r,
   // boring,
-  // collapse,
+  collapse,
   // collapse-r,
   // elastic,
   // elastic-r,
@@ -69,7 +69,7 @@ $hamburger-types: (
 
 // Hamburger types
 // ==================================================
-@import "types/3dx";
+// @import "types/3dx";
 // @import "types/3dx-r";
 // @import "types/3dy";
 // @import "types/3dy-r";
@@ -82,7 +82,7 @@ $hamburger-types: (
 // @import "types/arrowturn";
 // @import "types/arrowturn-r";
 // @import "types/boring";
-// @import "types/collapse";
+@import "types/collapse";
 // @import "types/collapse-r";
 // @import "types/elastic";
 // @import "types/elastic-r";

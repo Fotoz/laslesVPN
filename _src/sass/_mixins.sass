@@ -1,11 +1,11 @@
 //===== Font-face:
-=font-face($font-family, $font-path, $weight: 400, $style: normal)
+=font-face($font-family, $font-path, $weight: 400, $style: normal, $dislay: swap)
   @font-face
     font:
       family: $font-family
       style: $style
       weight: $weight
-      display: swap
+      display: $dislay
     src: url('../fonts/#{$font-path}.woff') format('woff'), url('../fonts/#{$font-path}.woff2') format('woff2')
 
 //===== Box:
