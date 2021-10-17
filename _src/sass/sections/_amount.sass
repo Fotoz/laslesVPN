@@ -1,0 +1,65 @@
+.amount
+  +resp-val(padding-bottom, 95, 60)
+  &__inner
+    +media($bp2, 1)
+      display: flex
+      flex-wrap: wrap
+    +media($bp2)
+      display: table
+      margin: 0 auto
+      padding:
+        right: 35px
+        left: 35px
+
+    border-radius: 10px
+    box-shadow: 0 -20px 30px rgba(#f4f5f5, .9), 0 30px 35px rgba(#f4f5f5, .9)
+  &__item
+    position: relative
+    display: flex
+    align-items: center
+    padding-top: 68px
+    &:last-child
+      padding-bottom: 68px
+    &:not(:last-child)::after
+      content: ''
+      position: absolute
+
+      background-color: #eeeff2
+
+    +media($bp2)
+      &:first-child
+        padding-top: 48px
+      &:last-child
+        padding-bottom: 48px
+      &:not(:last-child)::after
+        bottom: -34px
+        +box(100%, 2px)
+
+    +media($bp2, 1)
+      justify-content: center
+      flex: 0 1 33.33333333%
+      padding-bottom: 68px
+      &:not(:last-child)::after
+        right: 0
+        +box(2px, 125px)
+
+  &__icon
+    +box(55px)
+    margin-right: 36px
+
+    border-radius: 50%
+    background-color: #ffecec
+    text-align: center
+    i
+      font-size: 20px
+      line-height: 55px
+      color: $accent
+  &__info > *
+    display: block
+    line-height: 1.5
+  &__number
+    font-weight: 900
+    font-size: 25px
+    color: $primary
+  &__name
+    font-size: 20px

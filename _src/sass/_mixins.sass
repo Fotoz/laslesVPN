@@ -14,9 +14,9 @@
   height: $height
 
 //===== Background cover:
-=cover-bg($url)
+=bgi($url)
   background:
-    image: url('../img/' + $url + '.jpg')
+    image: url('../img/' + #{$url})
     position: center
     size: cover
     repeat: no-repeat
@@ -29,8 +29,8 @@
 =resp-val($property, $start-size, $min-size)
   $add-size: $start-size - $min-size
   #{$property}: $start-size + px
-  @media (max-width: #{$container-mw + px})
-    #{$property}: calc(#{$min-size + px} + #{$add-size} * ((100vw - 320px) / #{$container-mw - 320}))
+  @media (max-width: #{$container-maw + px})
+    #{$property}: calc(#{$min-size + px} + #{$add-size} * ((100vw - 320px) / #{$container-maw - 320}))
 
 //===== Responsive media queries:
 =media($bp, $desktop: true)

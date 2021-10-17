@@ -1,0 +1,22 @@
+.get-started
+  position: relative
+  +resp-val(padding-top, 75, 40)
+  +resp-val(padding-bottom, 130, 60)
+  +media($bp3, false)
+    &::after
+      content: ''
+      position: absolute
+      top: 4%
+      right: 0
+      bottom: 0
+      left: 51%
+
+      background: url(../img/get-started/illustration-1.svg) no-repeat
+  &__heading
+    max-width: 540px
+    +media($bp2)
+      max-width: 480px
+    &:not(:last-child)
+      margin-bottom: 50px
+      +media($bp2)
+        margin-bottom: 40px

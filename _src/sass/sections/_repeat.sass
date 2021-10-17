@@ -148,17 +148,27 @@
     .sign__in:hover
       color: $accent
 
-// Title:
-.title
-  font-size: 35px
-  font-weight: 500
-  line-height: 1.4
-  color: $primary
-  &--main
-    font-size: 50px
-  &--center,
-  &--center + p
-    text-align: center
+// Heading:
+.heading
+  > *:last-child
+    margin-bottom: 0
+  &__title
+    margin-bottom: 20px
+
+    +resp-val(font-size, 35, 28)
+    font-weight: 500
+    line-height: 1.4
+    color: $primary
+    &--main
+      +resp-val(font-size, 50, 37)
+    &--center,
+    &--center + p
+      text-align: center
+  &__text
+    +media($bp3)
+      line-height: 1.7
+    b
+      font-weight: 500
 
 // Button:
 .button
@@ -192,7 +202,9 @@
   flex: 0 1 330px
   max-width: 330px
 
-  padding: 78px 70px 50px
+  padding:
+    top: 78px
+    bottom: 50px
 
   cursor: pointer
   background-color: $white
@@ -219,13 +231,13 @@
     font-size: 14px
     text-transform: capitalize
     &::before
-      content: ''
+      content: '\e904'
       display: inline-block
-      +box(14, 10)
       margin-right: 25px
 
-      background-image: url(../img/plan/list-icon.svg)
-      background-repeat: no-repeat
+      font-family: 'icomoon'
+      font-size: 10px
+      color: #2fab73
   &__price
     margin-bottom: 15px
     font-size: 25px

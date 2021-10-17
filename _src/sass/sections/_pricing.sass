@@ -1,0 +1,25 @@
+.pricing
+  +resp-val(padding-top, 80, 60)
+  +resp-val(padding-bottom, 75, 60)
+  background-color: $secondary
+  &__heading
+    max-width: 555px
+    margin: 0 auto 60px
+    +media($bp2)
+      margin-bottom: 35px
+  &__inner
+    +media($bp3, 1)
+      display: flex
+      justify-content: space-around
+      margin:
+        right: -15px
+        left: -15px
+  &__package
+    margin:
+      right: 15px
+      left: 15px
+    +media($bp3)
+      margin: 0 auto
+      padding-top: 50px
+      &:not(:last-child)
+        margin-bottom: 35px

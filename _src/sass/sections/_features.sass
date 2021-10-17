@@ -1,0 +1,38 @@
+.features
+  +resp-val(padding-bottom, 130, 60)
+  &__inner
+    +media($bp3, 1)
+      position: relative
+  &__image
+    +media($bp4, 1)
+      margin-left: 35px
+    +media($bp3)
+      display: none
+  &__info
+    +media($bp3, 1)
+      position: absolute
+      right: 0
+      bottom: 0
+
+    max-width: 430px
+  &__heading
+    margin-bottom: 20px
+  &__item
+    font-size: 14px
+    &:not(:last-child)
+      margin-bottom: 15px
+    &::before
+      content: '\e904'
+      display: inline-block
+      +box(20px)
+      margin-right: 12px
+      transform: translateY(-2px)
+
+      font-family: 'icomoon'
+      font-size: 7px
+      text-align: center
+      line-height: 20px
+      color: $white
+
+      border-radius: 50%
+      background-color: #2fab73

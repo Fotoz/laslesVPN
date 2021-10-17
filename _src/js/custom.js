@@ -1,5 +1,5 @@
 
-// Touch event check:
+//===== Touch event check:
 if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
   document.body.classList.add('_touch');
 } else {
@@ -24,7 +24,6 @@ $('.mobile-nav a').on('click', function (event) {
   $('.hamburger').removeClass('is-active');
   $('.mobile-nav').fadeToggle();
   $('body').removeClass('_of-hidden');
-
 });
 
 // Resetting scroll for menu:
@@ -46,4 +45,20 @@ $(window).on('resize', function () {
     $('.hamburger').removeClass('is-active');
     $('.mobile-nav').attr('style', 'display: none');
   }
+});
+
+//===== Smooth scroll:
+$('[data-scroll]').on('click', function(event) {
+  event.preventDefault();
+
+  var sectionId     = $(this).data('scroll'),
+      sectionOffset = $(sectionId).offset().top;
+
+  // active link change:
+  // $('.nav a').removeClass('is-active');
+  // $(this).addClass('is-active');
+
+  $('html, body').animate({
+    scrollTop: sectionOffset // here it will be possible to take away the height of the fixed-navigation for correct scrolling
+  }, 0);
 });
