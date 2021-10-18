@@ -1,0 +1,124 @@
+.testimonials
+  @extend %s-padd
+  +media($bp1)
+    padding-bottom: 160px
+  &__container
+    position: relative
+  &__heading
+    max-width: 480px
+    margin: 0 auto 60px
+    +media($bp2)
+      margin-bottom: 40px
+  &__carousel
+    max-width: 400px
+  &__slide
+    height: 100%
+    padding: 30px
+    +media($bp1)
+      padding: 10px
+
+    background-color: $white
+    border: 2px solid #ddd
+    border-radius: 10px
+    &-header
+      display: flex
+      align-items: center
+      margin-bottom: 15px
+      > *:last-child
+        margin-right: 0
+    &-photo
+      +box(50px)
+      margin-right: 20px
+      overflow: hidden
+      border-radius: 50%
+    &-client
+      flex-grow: 1
+      margin-right: 12px
+      > *
+        display: block
+        line-height: 1.4
+    &-name
+      font-size: 18px
+      font-weight: 500
+      color: $primary
+    &-country
+      font-size: 14px
+    &-rating
+      color: $primary
+      flex-shrink: 0
+      &::after
+        content: '\e907'
+        display: inline-block
+        margin-left: 10px
+        transform: translateY(-1px)
+
+        font-family: 'icomoon'
+        font-size: 14px
+        color: #fea250
+    &-text
+      max-height: 200px
+      overflow: hidden
+      color: $primary
+
+// Owl Carousel classes:
+.testimonials__carousel
+  position: static
+  .owl-stage-outer
+    overflow: initial
+  .owl-stage
+    display: flex
+  .owl-item.active
+    .testimonials__slide
+      border-color: $accent
+      box-shadow: -10px -20px 30px rgba($box-shadow, .75), 10px 40px 40px rgba($box-shadow, .75)
+  .owl-nav
+    position: absolute
+    bottom: 0
+    right: 15px
+    z-index: $z-index__owl-nav
+    +media($bp1)
+      right: 50%
+      bottom: -110px
+      transform: translateX(50%)
+    button.owl-prev
+      margin-right: 15px
+    button.owl-prev,
+    button.owl-next
+      +box(60px)
+      background-color: $accent
+      border: 2px solid $accent
+      border-radius: 50%
+      +trs(background-color)
+      i
+        display: inline-block
+        margin-top: 7px
+        font-size: 18px
+        color: $white
+        +trs(transform)
+      ._no-touch &:hover
+        i
+          transform: scale(1.35)
+    button.owl-prev.disabled,
+    button.owl-next.disabled
+      background-color: $white
+      i
+        color: $accent
+      &:hover
+        i
+          transform: scale(1)
+  .owl-dots
+    position: relative
+    z-index: $z-index__owl-nav
+
+    text-align: left
+    +media($bp1, 1)
+      padding-top: 80px
+    +media($bp1)
+      display: none
+    .owl-dot
+      &:not(:last-child)
+        margin-right: 12px
+      span
+        +trs()
+    .owl-dot.active span
+      width: 44px

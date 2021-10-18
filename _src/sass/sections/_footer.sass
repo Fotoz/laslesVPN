@@ -1,1 +1,86 @@
-//===== Footer:
+.footer
+  padding-top: 15px
+  +media($bp2)
+    padding-top: 0
+  +resp-val(padding-bottom, 100, 50)
+  background-color: $secondary
+  &__inner
+    +media($bp3, 1)
+      display: flex
+      justify-content: space-between
+  &__info
+    +media($bp3, 1)
+      flex: 0 1 50%
+    > *:last-child
+      margin-bottom: 0
+  &__logo
+    margin-bottom: 20px
+  &__about
+    max-width: 330px
+    margin-bottom: 30px
+    span
+      font-weight: 500
+  &__social
+    margin-bottom: 30px
+    &-item
+      display: inline-block
+      +box(34px)
+      +media($bp3)
+        +box(60px)
+      &:not(:last-child)
+        margin-right: 15px
+      color: $accent
+      text-align: center
+      border-radius: 50%
+      background-color: $white
+      box-shadow: 3px 7px 5px #e8e8ea
+      +trs(all, .2s, ease)
+
+      i
+        line-height: 34px
+        +media($bp3)
+          font-size: 25px
+          line-height: 60px
+
+    ._no-touch &-item:hover
+      color: $white
+      background-color: $accent
+  &__copy
+    color: #afb5c0
+    span
+      font-weight: 500
+  &__nav
+    display: flex
+    flex: 0 1 50%
+    justify-content: space-between
+    +media($bp3)
+      display: none
+  &__list
+    &:not(:last-child)
+      flex: 0 0 33%
+      padding-right: 20px
+    &-item
+      margin-bottom: 10px
+      &:first-child
+        margin-bottom: 20px
+
+        font-size: 18px
+        font-weight: 500
+        .footer__list-link
+          color: $primary
+    &-link
+      position: relative
+      +trs(color)
+      &::after
+        content: ''
+        position: absolute
+        bottom: -3px
+        left: 0
+        +box(100%, 2px)
+
+        background-color: transparent
+        +trs(background-color)
+    ._no-touch &-link:hover
+      color: $primary
+      &::after
+        background-color: $primary

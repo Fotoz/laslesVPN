@@ -1,0 +1,19 @@
+.subscribe
+  padding-bottom: 50px
+  +media($bp2)
+    padding-bottom: 30px
+  &__inner
+    +media($bp3, 1)
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+    padding: 50px 70px
+    +media($bp2)
+      padding: 25px 0
+    border-radius: 10px
+    +media($bp2, 1)
+      box-shadow: 0 -15px 30px rgba($box-shadow, .75), 0 30px 35px rgba($box-shadow, .75)
+  &__heading
+    +media($bp3)
+      margin-bottom: 35px

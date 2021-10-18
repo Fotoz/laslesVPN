@@ -1,0 +1,23 @@
+.partners
+  padding-top: 25px
+  +resp-val(padding-bottom, 50, 0)
+  &__inner
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    +media($bp4)
+      max-width: 500px
+      margin: 0 auto
+      justify-content: center
+  &__item
+    +trs(opacity)
+    +media($bp4)
+      margin:
+        right: 25px
+        left: 25px
+      &:not(:last-child)
+        margin-bottom: 25px
+
+._no-touch
+  .partners__item:hover
+    opacity: .65

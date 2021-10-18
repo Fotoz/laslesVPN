@@ -14,9 +14,8 @@
       left: 10px
 
 %s-padd
-  padding:
-    top: 50px
-    bottom: 50px
+  +resp-val(padding-top, 75, 50)
+  +resp-val(padding-bottom, 75, 50)
 
 //===== Extra classes:
 ._container
@@ -34,4 +33,7 @@
   object-fit: cover
 
 ._of-hidden
+  overflow: hidden
+
+._page
   overflow: hidden

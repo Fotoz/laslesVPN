@@ -54,11 +54,23 @@ $('[data-scroll]').on('click', function(event) {
   var sectionId     = $(this).data('scroll'),
       sectionOffset = $(sectionId).offset().top;
 
-  // active link change:
-  // $('.nav a').removeClass('is-active');
-  // $(this).addClass('is-active');
-
   $('html, body').animate({
-    scrollTop: sectionOffset // here it will be possible to take away the height of the fixed-navigation for correct scrolling
+    scrollTop: sectionOffset
   }, 0);
+});
+
+//===== Owl carousel for section: Testimonials
+$('.owl-carousel').owlCarousel({
+  items: 1,
+  nav:  true,
+  navText: ['<i class="icon-arrow-left"></i>','<i class="icon-arrow-right"></i>'],
+  smartSpeed: 700,
+  responsive: {
+    0: {
+      margin: 30
+    },
+    768: {
+      margin: 50
+    }
+  }
 });
