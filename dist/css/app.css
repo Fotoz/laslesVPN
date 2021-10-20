@@ -1430,7 +1430,7 @@ textarea:focus {
   -ms-flex: 0 1 330px;
   flex: 0 1 330px;
   max-width: 330px;
-  padding-top: 78px;
+  padding-top: 70px;
   padding-bottom: 50px;
   cursor: pointer;
   background-color: #fff;
@@ -1446,8 +1446,6 @@ textarea:focus {
 }
 
 .package__icon {
-  width: 120px;
-  height: 120px;
   margin-bottom: 30px;
 }
 
@@ -1875,7 +1873,7 @@ textarea:focus {
 }
 
 .footer {
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 100px;
   background-color: #fafafa;
 }
@@ -2169,11 +2167,11 @@ textarea:focus {
   }
 
   .amount {
-    padding-bottom: calc(35px + 35 * ((100vw - 320px) / 850));
+    padding-bottom: calc(30px + 40 * ((100vw - 320px) / 850));
   }
 
   .features {
-    padding-bottom: calc(60px + 70 * ((100vw - 320px) / 850));
+    padding-bottom: calc(50px + 80 * ((100vw - 320px) / 850));
   }
 
   .network__heading {
@@ -2185,7 +2183,7 @@ textarea:focus {
   }
 
   .footer {
-    padding-bottom: calc(50px + 50 * ((100vw - 320px) / 850));
+    padding-bottom: calc(25px + 75 * ((100vw - 320px) / 850));
   }
 }
 
@@ -2220,11 +2218,28 @@ textarea:focus {
 
   .pricing__package {
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .pricing__package:not(:last-child) {
     margin-bottom: 35px;
+  }
+
+  .pricing__package .package__icon {
+    margin-bottom: 20px;
+  }
+
+  .pricing__package .package__name {
+    margin-bottom: 15px;
+  }
+
+  .pricing__package .package__list {
+    margin-bottom: 20px;
+  }
+
+  .pricing__package .package__list > *:not(:last-child) {
+    margin-bottom: 10px;
   }
 
   .subscribe__heading {
@@ -2280,6 +2295,10 @@ textarea:focus {
     margin-bottom: 35px;
   }
 
+  .partners {
+    padding-top: 0;
+  }
+
   .testimonials__heading {
     margin-bottom: 40px;
   }
@@ -2291,10 +2310,6 @@ textarea:focus {
   .subscribe__inner {
     padding: 25px 0;
   }
-
-  .footer {
-    padding-top: 0;
-  }
 }
 
 @media (max-width: 575px) {
@@ -2304,7 +2319,7 @@ textarea:focus {
   }
 
   .testimonials {
-    padding-bottom: 160px;
+    padding-bottom: 140px;
   }
 
   .testimonials__slide {
