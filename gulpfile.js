@@ -105,7 +105,7 @@ function css () {
 function js () {
   return src(path.src.js)
     .pipe( file_include() )
-    .pipe( dest(path.build.js) ) // uncompressed version
+    // .pipe( dest(path.build.js) ) // uncompressed version
     .pipe( uglify() )
     .pipe( rename('app.min.js') )
     .pipe( dest(path.build.js) )

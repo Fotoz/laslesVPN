@@ -2,16 +2,14 @@
   position: relative
   +resp-val(padding-top, 75, 40)
   +resp-val(padding-bottom, 130, 60)
-  +media($bp3, false)
-    &::after
-      content: ''
-      position: absolute
-      top: 4%
-      right: 0
-      bottom: 0
-      left: 51%
-
-      background: url(../img/get-started/illustration-1.svg) no-repeat
+  &__illustration
+    position: absolute
+    top: 4%
+    right: 0
+    bottom: 0
+    left: 51%
+    +media($bp3)
+      display: none
   &__heading
     max-width: 540px
     +media($bp2)
@@ -20,3 +18,59 @@
       margin-bottom: 50px
       +media($bp2)
         margin-bottom: 40px
+
+// Animation for illustration:
+#lock
+  animation: rotating 4s linear infinite
+
+#triangle
+  animation: scaling 4s linear infinite
+
+#letterN
+  animation: blipping 4s linear infinite
+
+#cupSteam
+  animation: blipping 4s linear infinite, scalingY 4s linear infinite
+
+#redRectangle,
+#greenRectangle,
+#yellowRectangle
+  animation: scalingY 4s linear infinite
+
+#greenRectangle
+  animation-delay: 2s
+
+#yellowRectangle
+  animation-delay: 1s
+
+@keyframes rotating
+  0%
+    transform: rotate(0)
+  50%
+    transform: rotate(-9deg)
+  100%
+    transform: rotate(0)
+
+@keyframes scaling
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.05)
+  100%
+    transform: scale(1)
+
+@keyframes scalingY
+  0%
+    transform: scaleY(1)
+  50%
+    transform: scaleY(1.1)
+  100%
+    transform: scaleY(1)
+
+@keyframes blipping
+  0%
+    opacity: 1
+  50%
+    opacity: .5
+  100%
+    opacity: 1
