@@ -1047,6 +1047,12 @@ progress {
   background: #f53838;
 }
 
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   min-width: 320px;
 }
@@ -2323,7 +2329,6 @@ textarea:focus {
     height: 100%;
     padding: 90px 15px 25px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     text-align: center;
     background-color: #fff;
     -webkit-transition: all 0.4s linear;
