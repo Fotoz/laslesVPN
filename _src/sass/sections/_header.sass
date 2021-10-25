@@ -1,6 +1,15 @@
 .header
-  +media($bp3)
-    position: relative
+  position: relative
+  z-index: $z-index-header
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    z-index: $z-index-overlay
+    +box(100%)
+
+    background-color: $white
   &__inner
     display: flex
     justify-content: space-between

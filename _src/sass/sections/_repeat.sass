@@ -1,29 +1,36 @@
 //===== Repeating elements:
 
+// Hamburger:
+.hamburger
+  display: none
+  font-size: 0
+  +media($bp3)
+    display: block
+    z-index: $z-index-hamburger
+
 // Navigation:
 .nav
-  &--desktop
-    padding:
-      right: 30px
-      left: 30px
-    +media($bp3)
-      display: none
-    .nav__link
-      margin:
-        right: 20px
-        left: 20px
-      +trs(text-shadow)
-  &--mobile
-    padding:
-      top: 30px
-      bottom: 30px
-    .nav__link
-      display: block
+  +media($bp3)
+    position: fixed
+    top: -100%
+    left: 0
+    opacity: 0
+    +box(100%)
+    padding: 90px 15px 25px
 
-      font-size: 27px
-      color: $primary
-      &:not(:last-child)
-        margin-bottom: 15px
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+
+    text-align: center
+    background-color: $white
+    +trs(all, .4s)
+    &.is-active
+      top: 0
+      opacity: 1
+    &__item
+      margin-bottom: 15px
+      &:last-child
+        margin-bottom: 30px
       &::before,
       &::after
         content: '\e907'
@@ -37,44 +44,30 @@
         margin-right: 15px
       &::after
         margin-left: 15px
-
-.mobile-nav
-  padding: 18px 0
-  display: none
-  position: absolute
-  top: 0
-  left: 0
-  z-index: $z-index__mobile-nav
-
-  text-align: center
-
-  +box(100%, 100vh)
-  background-color: #fafafa
-  &__inner
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    align-items: center
-    height: 100%
-
-    overflow-y: auto
-    -webkit-overflow-scrolling: touch
-
-._no-touch
-  .nav--desktop .nav__link:hover
-    text-shadow: 15px 15px 1px $accent
-
-// Hamburger:
-.hamburger
-  display: none
-  z-index: $z-index__hamburger
-
-  font-size: 0
-  +media($bp3)
-    display: block
+    &__link
+      font-size: 27px
+      color: $primary
+  +media($bp3, 1)
+    padding:
+      right: 30px
+      left: 30px
+    &__list
+      position: relative
+      z-index: $z-index-hamburger
+      display: flex
+    &__item
+      margin:
+        right: 20px
+        left: 20px
+    &__link
+      +trs(text-shadow)
+      ._no-touch &:hover
+        text-shadow: 15px 15px 1px $accent
 
 // Site logo:
 .site-logo
+  position: relative
+  z-index: $z-index-hamburger
   display: flex
   align-items: center
   &__icon
@@ -102,7 +95,11 @@
   +trs
 
 ._no-touch
-  .sign--desktop .button-rounded:hover,
+  +media($bp3, 1)
+    .sign .button-rounded:hover
+      color: $white
+      background-color: $accent
+      box-shadow: 0 12px 17px rgba($accent, .3)
   .package:hover .button-rounded
     color: $white
     background-color: $accent
@@ -110,6 +107,10 @@
 
 // Sign In & Sign Up links:
 .sign
+  position: relative
+  z-index: $z-index-hamburger
+  +media($bp3)
+    display: none
   flex-shrink: 0
   > *:not(:last-child)
     margin-right: 28px
@@ -122,18 +123,17 @@
 
     background: none
     +trs(color)
+    +media($bp3, 1)
+      ._no-touch &:hover
+        color: $accent
   &__up
     padding: .4em 2.8em
     font-weight: 500
     border-width: 1px
-  &--desktop
+  &--nav
+    display: none
     +media($bp3)
-      display: none
-
-._no-touch
-  .sign--desktop
-    .sign__in:hover
-      color: $accent
+      display: block
 
 // Heading:
 .heading

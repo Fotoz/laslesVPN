@@ -12,25 +12,23 @@ if (('ontouchstart' in window) || window.DocumentTouch && document instanceof Do
 $('.hamburger').on('click', function (event) {
   event.preventDefault();
 
-  $(this).toggleClass('is-active');
-  $('.mobile-nav').fadeToggle();
+  $('.hamburger, .nav').toggleClass('is-active');
   $('body').toggleClass('_of-hidden');
 });
 
 // Hide the menu and return the standard view of the hamburger:
-$('.mobile-nav a').on('click', function (event) {
+$('.nav a').on('click', function (event) {
   event.preventDefault();
 
-  $('.hamburger').removeClass('is-active');
-  $('.mobile-nav').fadeToggle();
+  $('.hamburger, .nav').removeClass('is-active');
   $('body').removeClass('_of-hidden');
 });
 
 // Resetting scroll for menu:
-$('.hamburger, .mobile-nav a').on('click', function (event) {
+$('.hamburger, .nav a').on('click', function (event) {
   event.preventDefault();
 
-  $('.mobile-nav__inner').delay(350).queue(function (reset_scroll) {
+  $('.nav').delay(350).queue(function (reset_scroll) {
     $(this).scrollTop(0);
     reset_scroll();
   });
@@ -42,21 +40,17 @@ $(window).on('resize', function () {
 
   if (width > 991) {
     $('body').removeClass('_of-hidden');
-    $('.hamburger').removeClass('is-active');
-    $('.mobile-nav').attr('style', 'display: none');
+    $('.hamburger, .nav').removeClass('is-active');
   }
 });
 
 //===== Smooth scroll:
-$('[data-scroll]').on('click', function(event) {
+$('a[href^="#"]:not([href="#"])').on('click', function(event) {
   event.preventDefault();
 
-  var sectionId     = $(this).data('scroll'),
-      sectionOffset = $(sectionId).offset().top;
-
-  $('html, body').animate({
-    scrollTop: sectionOffset
-  }, 0);
+  $('html,body').animate({
+    scrollTop: $($(this).attr('href')).offset().top
+  }, 350);
 });
 
 //===== Owl carousel for section: Testimonials
