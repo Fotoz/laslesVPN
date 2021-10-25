@@ -1,6 +1,8 @@
 .get-started
   position: relative
-  +resp-val(padding-top, 75, 40)
+  padding-top: 70px
+  +media($bp3)
+    padding-top: calc(100px + (130 - 100) * ((100vw - 320px) / (991 - 320)))
   +resp-val(padding-bottom, 130, 60)
   &__illustration
     position: absolute

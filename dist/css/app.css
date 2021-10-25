@@ -1047,12 +1047,6 @@ progress {
   background: #f53838;
 }
 
-body,
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   min-width: 320px;
 }
@@ -1405,6 +1399,9 @@ textarea:focus {
 
 .header {
   position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
 }
 
@@ -1434,7 +1431,7 @@ textarea:focus {
 
 .get-started {
   position: relative;
-  padding-top: 75px;
+  padding-top: 70px;
   padding-bottom: 130px;
 }
 
@@ -2286,10 +2283,6 @@ textarea:focus {
   }
 
   .get-started {
-    padding-top: calc(40px + 35 * ((100vw - 320px) / 850));
-  }
-
-  .get-started {
     padding-bottom: calc(60px + 70 * ((100vw - 320px) / 850));
   }
 
@@ -2327,8 +2320,9 @@ textarea:focus {
     opacity: 0;
     width: 100%;
     height: 100%;
-    padding: 90px 15px 25px;
+    padding: 80px 15px 25px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     text-align: center;
     background-color: #fff;
     -webkit-transition: all 0.4s linear;
@@ -2386,8 +2380,16 @@ textarea:focus {
     line-height: 1.7;
   }
 
+  .header {
+    position: fixed;
+  }
+
   .header__inner {
-    height: 70px;
+    height: 60px;
+  }
+
+  .get-started {
+    padding-top: calc(100px + 30 * (100vw - 320px) / 671);
   }
 
   .get-started__illustration {

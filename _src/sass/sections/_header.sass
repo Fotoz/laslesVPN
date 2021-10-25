@@ -1,6 +1,11 @@
 .header
   position: relative
+  top: 0
+  left: 0
+  width: 100%
   z-index: $z-index-header
+  +media($bp3)
+    position: fixed
   &::after
     content: ''
     position: absolute
@@ -16,4 +21,4 @@
     align-items: center
     height: 130px
     +media($bp3)
-      height: 70px
+      height: 60px
