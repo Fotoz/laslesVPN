@@ -48,9 +48,15 @@ $(window).on('resize', function () {
 $('a[href^="#"]:not([href="#"])').on('click', function(event) {
   event.preventDefault();
 
-  $('html,body').animate({
-    scrollTop: $($(this).attr('href')).offset().top
-  }, 350);
+  if ( $(document).width() > 991 ) {
+    $('html,body').animate({
+      scrollTop: $($(this).attr('href')).offset().top
+    }, 350);
+  } else {
+    $('html,body').animate({
+      scrollTop: $($(this).attr('href')).offset().top - 60
+    }, 350);
+  }
 });
 
 //===== Owl carousel for section: Testimonials
